@@ -1,4 +1,4 @@
-# SpheroControl - A Windows 8.1 App to control Sphero 2.0#
+# SpheroControl #
 
 [Sphero 2.0](http://www.gosphero.com/) is a interactive toy robot ball that can be programmed and controlled via bluetooth.
 This application aims to make it comfortable to control from Windows 8.1.
