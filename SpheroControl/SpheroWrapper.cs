@@ -154,7 +154,7 @@ namespace SpheroControl
 
         private void SensorControl_LocationUpdatedEvent(object sender, LocationReading e)
         {
-            Debug.WriteLine("[VELOCITY] X: " + e.X + " Y: " + e.Y);
+            Debug.WriteLine("[LOCATION] X: " + e.X + " Y: " + e.Y);
         }
 
         private void SensorControl_AttitudeUpdatedEvent(object sender, AttitudeReading e)

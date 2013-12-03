@@ -98,7 +98,14 @@ namespace SpheroControl
             _runningReconnect = true;
 
             if (!_sphero.IsConnected)
+            {
                 _sphero.Connect();
+            }
+            else
+            {
+                _sphero._sphero.SetBackLED(1.0f);
+                _sphero._sphero.SetRGBLED(0, 0, 0);
+            }
 
             _runningReconnect = false;
         }
@@ -114,23 +121,47 @@ namespace SpheroControl
 
                 if (_currentData.ControllerConnected)
                 {
-                    if (_currentData.LeftIntensity > 0.1f)
-                        _sphero._sphero.Roll((int)(_currentData.LeftAngle + 0.5f), _currentData.LeftIntensity);
-
                     if (_currentData.ButtonA)
-                        _sphero._sphero.SetHeading((int)(_currentData.RightAngle + 0.5f));
-
-                    if (_currentData.ButtonB)
-                        _sphero._sphero.SetBackLED(_currentData.LeftTrigger);
-
-                    if (_currentData.ButtonX)
                     {
-                        _sphero._sphero.SetRGBLED(
-                            (int)((_currentData.LeftTrigger * 255) + 0.5),
-                            (int)((_currentData.RightTrigger * 255) + 0.5),
-                            (int)((_currentData.RightIntensity * 255) + 0.5)
-                        );
+                        _sphero._sphero.SetHeading(0);
                     }
+                    else if (_currentData.ButtonB)
+                    {
+                        _sphero._sphero.SetHeading(180);
+                    }
+                    else if (_currentData.ButtonX)
+                    {
+                        _sphero._sphero.SetHeading(0);
+                    }
+                    else if (_currentData.ButtonY)
+                    {
+                        _sphero._sphero.SetHeading(0);
+                    }
+                    else
+                    {
+                        if (_currentData.RightIntensity > 0.5f)
+                        {
+                            float inverseAngle = _currentData.RightAngle + 180.0f;
+                            inverseAngle = (inverseAngle <= 360.0f ? inverseAngle : (inverseAngle - 360.0f));
+                            _sphero._sphero.Roll((int)(inverseAngle + 0.5f), 0.0f);
+                        }
+                        else
+                        {
+                            _currentData.RightTrigger = _currentData.RightTrigger > 0.01f ? _currentData.RightTrigger : 0.0f;
+                            _sphero._sphero.Roll((int)(_currentData.LeftAngle + 0.5f), _currentData.RightTrigger);
+                        }
+                    }
+                    //if (_currentData.ButtonB)
+                    //    _sphero._sphero.SetBackLED(_currentData.LeftTrigger);
+
+                    //if (_currentData.ButtonY)
+                    //{
+                    //    _sphero._sphero.SetRGBLED(
+                    //        (int)((_currentData.LeftTrigger * 255) + 0.5),
+                    //        (int)((_currentData.RightTrigger * 255) + 0.5),
+                    //        (int)((_currentData.RightIntensity * 255) + 0.5)
+                    //    );
+                    //}
                 }
             }
 

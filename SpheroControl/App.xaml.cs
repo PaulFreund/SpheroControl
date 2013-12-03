@@ -25,6 +25,66 @@
 */
 //###################################################################################################
 
+/////////////////////////////////////////////////////////////////////////////
+// Todo
+/////////////////////////////////////////////////////////////////////////////
+
+////// General
+
+//// UI
+// Display if Sphero is connected
+// Display if Gamepad is connected
+// Setting of input type
+// Manual color picker
+// Touch movement
+// (accelerometer movement?)
+// Change of settings (including modes and behaviour)
+// If possible gamepad mapper
+
+//// Sphero
+// Sphero events don't work at the moment
+// Pass more information to loop
+
+//// Input
+// Multiple input types (touch/keyboard/gamepad)
+// Gamepad Vibration
+// Better support for other gamepads
+
+////// Modes (Gamepad)
+
+//// Direction Mode
+// Left stick defines direction
+// Right Trigger defines speed
+// A is nitro button (no full speed by trigger)
+// Y switches between default color and color coding of speed
+// X enables calibration while pressed (enable calibration light, set Speed to 0 and use left stick angle value when released )
+// B toggles calibration light 
+// Right Stick defines Color (if enabled)
+
+//// Move Mode
+// Left stick defines direction and speed 
+// A is nitro button (no full speed by trigger)
+// Y switches between default color and color coding of speed
+// X enables calibration while pressed (enable calibration light, set Speed to 0 and use left stick angle value when released )
+// B toggles calibration light 
+// Right Stick defines Color (if enabled)
+
+//// Car Mode
+// Right Trigger increase speed (accelerate)
+// Left Trigger decrease speed  
+// Left stick steering left and right (only X-axis of stick)
+// Calibration light always on
+// Y switches between default color and color coding of speed
+// Color animation on colision
+// A is nitro button (no full speed by acceleration)
+
+//// Tank mode
+// Left trigger defines half of speed and adds an offset to move to the left ( up to 90deg )
+// Right trigger defines half of the speed and adds an offset to move to the right ( up to 90deg )
+// Calibration light always on
+// Y switches between default color and color coding of speed
+// Color animation on colision
+
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
