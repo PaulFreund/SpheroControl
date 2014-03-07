@@ -8,6 +8,7 @@ This application aims to make it comfortable to control from Windows 8.1.
 * The only supported input device is a Xbox360 gamepad 
 * The mapping is incomplete and movement does not feel very "natural" yet 
 * The Interface has only one button to start and stop the control loop
+* Connection is automatically established and re-established
 * The application metadata is missing
 
 ## Planned features ##
